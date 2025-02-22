@@ -1,0 +1,84 @@
+body{
+    height: 100vh;
+    display: flex;
+    background: #e7e7e7;
+    align-items: center;
+    justify-content: center;
+}
+.container-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 6px;
+    max-width: 23em;
+    max-height: 27em;
+    background: #fff;
+    position: relative;
+    box-shadow: var(--box-shadow-01);
+}
+.container-form>div{
+    width: 100%;
+    margin: 14px 16px;
+}
+.title-form{
+    text-align: center;
+    margin-top: 3em;
+}
+.title-form h2{
+    font-weight: 550;
+    font-size: 1.9em;
+    text-transform: uppercase;
+    color: var(--quaternary-color);
+}
+.form{
+    margin-top: 3em;
+}
+.form>form{
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.input input{
+    font-size: 15px;
+    font-weight: 550;
+    width: 100%;
+    outline: none;
+    padding: 11px 21px;
+    letter-spacing: .4px;
+    color: #555555;
+    border: 1px solid var(--septenary-color);
+    border-radius: 6px;
+}
+.btn{
+    margin-top: 1em;
+}
+.btn button{
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 550;
+    background: #333;
+    color: #f3f3f3;
+    border: none;
+    border-radius: 6px;
+    text-transform: capitalize;
+    width: 100%;
+    padding: 11px 21px;
+}
+.btn-log button{
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+}
+.btn-log button i{
+    font-size: 18px;
+}
+.info{
+    margin-top: 2em;
+}
+.info h5{
+    font-size: 13px;
+    font-weight: 550;
+    text-align: center;
+    margin-top: 1em;
+    color: var(--quaternary-color);
+}

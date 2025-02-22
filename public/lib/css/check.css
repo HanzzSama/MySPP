@@ -1,0 +1,111 @@
+:root{
+    --text-color: #313131;
+    --background-color: #ebebeb;
+    --box-shadow-1: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    color: #313131;
+    font-weight: 400;
+    transition: all .4s;
+    text-decoration: none;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    justify-content: center;
+    background-color: var(--background-color);
+}
+body::-webkit-scrollbar {
+  width:0;
+}
+.container-main{
+    width: 100%;
+    display: flex;
+    max-width: 22em;
+    min-height: 30em;
+    border-radius: 6px;
+    background: #fbfbfb;
+    box-shadow: var(--box-shadow-1);
+}
+.container-main>div{
+    width: 100%;
+    margin: 16px 20px;
+}
+.title-head{
+    display: flex;
+    gap: 13px;
+    align-items: center;
+}
+.img img{
+    width: 3.5em;
+    border-radius: 50%;
+}
+.title h2{
+    font-weight: 550;
+    color: #313131;
+}
+.title h5{
+    color: #777777;
+}
+hr{
+    margin: 10px 0;
+    height: 5px;
+    border-left: transparent;
+    border-right: transparent;
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+
+}
+.content-check{
+    gap: 8px;
+    margin-top: 1.3em;
+    display: flex;
+    flex-direction: column;
+}
+.title-check{
+    margin: 17px 0 6px 0;
+}
+.title-check h3{
+    font-size: 17px;
+    font-weight: 550;
+    text-transform: capitalize;
+}
+.data{
+    display: flex;
+    gap: 10px;
+}
+.data h4{
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #313131;
+}
+.data>h4:nth-child(1){
+    width: 9em;
+    font-size: 14px;
+    color: #313131;
+}
+.data>h4:nth-child(3){
+    font-size: 14px;
+    color: #555555;
+}
+.data .nominal{
+    display: flex;
+}
+.data .nominal h6{ font-size: 10px; }
+.btn{ margin-top: 1.4em; }
+.btn button{
+    font-size: 15px;
+    font-weight: 550;
+    background: #333;
+    color: #f3f3f3;
+    border: none;
+    border-radius: 6px;
+    text-transform: capitalize;
+    width: 100%;
+    padding: 11px 21px;
+}
