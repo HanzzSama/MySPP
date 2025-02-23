@@ -12,6 +12,9 @@
     text-decoration: none;
     font-family: "Poppins", sans-serif;
 }
+*::-webkit-scrollbar {
+  width:0;
+}
 body{
     display: flex;
     color: var(--text-color);
@@ -328,6 +331,9 @@ body::-webkit-scrollbar {
 .container-main>div{
     width: 100%;
 }
+.content{
+    display: none;
+}
 .header-nav{
     width: 100%;
     display: flex;
@@ -382,10 +388,52 @@ body::-webkit-scrollbar {
 /* ============================================ */
 /* =============== Data Siswa Section =============== */
 /* ============================================ */
+.content-search-siswa{
+    display: flex;
+    margin-top: 1em;
+    background: #fbfbfb;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-1);
+}
+.content-search-siswa>div{
+    width: 100%;
+    margin: 10px;
+    gap: 10px;
+    align-items: center;
+    display: flex;
+}
+.search-data-siswa{
+    width: 100%;
+}
+.search-data-siswa input, select{
+    width: 100%;
+    letter-spacing: .4px;
+    outline: none;
+    color: #555555;
+    font-weight: 550;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+.btn.src button{
+    padding: 10px 30px;
+    border: none;
+    display: flex;
+    gap: 10px;
+    color: #ebebeb;
+    font-weight: 550;
+    cursor: pointer;
+    border-radius: 5px;
+    letter-spacing: .4px;
+    align-items: center;
+    background: #313131;
+    text-transform: capitalize;
+}
 .container-data-siswa{
     width: 100%;
     margin-top: 3em;
-    display: flex;
+    /* display: flex; */
     position: relative;
     /* background: red; */
 }
@@ -421,7 +469,7 @@ body::-webkit-scrollbar {
     display: flex;
     flex-direction: column;
 }
-.card-data-siswa{
+.card-siswa{
     width: 100%;
     display: flex;
     border-radius: 6px;
@@ -435,6 +483,10 @@ body::-webkit-scrollbar {
     align-items: center;
     margin: 10px 10px 10px 20px;
     justify-content: space-between;
+}
+.data-siswa:nth-child(1){
+    /* background: red; */
+    min-width: 17em;
 }
 .name-siswa h3{
     font-size: 15px;
@@ -477,6 +529,9 @@ body::-webkit-scrollbar {
     background: #313131;
     text-transform: capitalize;
 }
+.data-siswa.btn button h4{
+    white-space: nowrap;
+}
 .data-siswa.btn i{
     color: #ebebeb;
     font-size: 19px;
@@ -510,7 +565,7 @@ body::-webkit-scrollbar {
 .container-add-siswa{
     width: 100%;
     margin-top: 3em;
-    display: flex;
+    /* display: flex; */
     position: relative;
     /* background: red; */
 }
@@ -567,13 +622,211 @@ body::-webkit-scrollbar {
     padding: 11px 21px;
 }
 /* ============================================ */
-/* =============== Header Section =============== */
+/* =============== Profile Siswa Section =============== */
 /* ============================================ */
-
+.profile-siswa>div{
+    display: flex;
+    flex-direction: column;
+}
+.cover{
+    display: flex;
+    align-items: center;
+    background: #313131;
+    border-radius: 6px 0 0 6px;
+    min-width: 15em;
+}
+.icon{
+    overflow-x: hidden;
+}
+.icon i{
+    font-size: 20em;
+    color: #a1a1a1;
+    transform: translate(-.47em, 0);
+}
+.title-profile h3{
+    font-size: 18px;
+    font-weight: 550;
+    color: #313131;
+    text-transform: capitalize;
+}
+.card-profile{
+    height: 100%;
+    margin-top: 2em;
+}
+.card-profile>div{
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.profile-kls{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+.profile-iden{
+    width: 100%;
+}
+.profile-name{
+    display: flex;
+    border-radius: 5px;
+    background: #313131;
+    /* border: 2px solid #3e74a4; */
+}
+.profile-name h3{
+    color: #ccc;
+    font-weight: 550;
+    margin: 10px 20px;
+}
+.profile-name h3 b{
+    color: #a1a1a1;
+    font-size: 14px;
+}
+.profile-kls{
+    margin-top: 10px;
+}
+.profile-kls h4:nth-child(1){
+    color: #333;
+    font-weight: 550;
+    text-transform: capitalize;
+}
+.profile-kls h4:nth-child(2){
+    color: #555555;
+    font-weight: 550;
+    font-size: 14.5px;
+}
+.profile-alamat{
+    width: 100%;
+    display: flex;
+    border: 1px solid #ccc;
+    background: #ebebeb;
+}
+.profile-alamat>div{
+    display: flex;
+    gap: 9px;
+    margin: 10px 12px;
+}
+.profile-alamat i{
+    font-size: 21px;
+    color: #555555;
+}
+.profile-alamat h4{
+    text-transform: capitalize;
+    font-size: 14.4px;
+    color: #6e6e6e;
+}
 /* ============================================ */
-/* =============== Header Section =============== */
+/* =============== Header Profile Section =============== */
 /* ============================================ */
-
+.conteiner-header{
+    display: flex;
+    margin-top: 3em;
+    position: relative;
+}
+.conteiner-header>div{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+.conteiner-header .card-header-siswa{
+    width: 100%;
+    display: flex;
+    border-radius: 6px;
+    position: relative;
+    background: #fbfbfb;
+    box-shadow: var(--box-shadow-1);
+}
+.card-header-siswa.profile-siswa{
+    min-height: 20em;
+}
+.card-header-siswa.history-siswa{
+    max-height: 20em;
+    position: relative;
+}
+.card-header-siswa.history-siswa>div{
+    display: flex;
+    flex-direction: column;
+}
+.card-header-siswa>div{
+    width: 100%;
+    margin: 11px 20px;
+}
+.title-history-siswa h3{
+    font-size: 18px;
+    font-weight: 550;
+    color: #313131;
+    text-transform: capitalize;
+}
+.main-history-list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    border-radius: 5px;
+    overflow-y: auto;
+    position: relative;
+    margin-top: 1.6em;
+}
+.main-history-list>div{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    /* width: 100%; */
+    flex-direction: column;
+}
+.card-history{
+    width: 100%;
+    background: #f3f3f3;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.card-history>div{
+    width: 100%;
+    display: flex;
+    margin: 10px 20px;
+    justify-content: space-between;
+}
+.history-name h4{
+    font-weight: 550;
+    font-size: 15px;
+    color: #555555;
+    text-transform: capitalize;
+}
+.history-tgl{
+    min-width: 10em;
+    /* background: red; */
+}
+.history-tgl h4{
+    font-size: 14px;
+    color: #6e6e6e;
+    text-transform: capitalize;
+    letter-spacing: .4px;
+}
+.history-nominal{
+    display: flex;
+}
+.history-nominal h4{
+    color: #3ea458;
+    font-weight: 550;
+}
+.history-nominal h6{
+    color: #6e6e6e;
+}
+/* ============================================ */
+/* =============== History All Section =============== */
+/* ============================================ */
+.container-history-all{
+    width: 100%;
+    display: flex;
+    margin-top: 2em;
+    border-radius: 6px;
+    position: relative;
+    background: #fbfbfb;
+    box-shadow: var(--box-shadow-1);
+}
+.container-history-all>div{
+    margin: 10px 20px;
+}
 /* ============================================ */
 /* =============== Footer Section =============== */
 /* ============================================ */

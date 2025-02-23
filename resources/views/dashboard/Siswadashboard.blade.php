@@ -44,6 +44,13 @@
                         <h4>Selamat datang di halaman pembayaran SPP</h4>
                     </article>
                 </nav>
+                <header class="conteiner-header">
+                    <div>
+                        @include('component.profile')
+                        @include('component.history')
+                    </div>
+                </header>
+                @include('component.historyAll')
                 <footer class="container-footer">
                     <div></div>
                 </footer>

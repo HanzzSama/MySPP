@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
-            $table->string('nisn', 10)->unique();
+            $table->string('nisn', 10)->nullable();
             $table->string('nis', 8)->unique();
             $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
             $table->integer('id_kelas');

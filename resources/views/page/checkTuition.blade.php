@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <article class="btn">
-                        <a href="{{ route('dashboard.petugas') }}">
+                        <a href="{{ route('dashboard.'.Auth::user()->role) }}">
                             <button>kembali ke dashboard</button>
                         </a>
                     </article>

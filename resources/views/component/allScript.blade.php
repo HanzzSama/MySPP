@@ -135,7 +135,7 @@
         const selectedJurusan = jurusanInput.value;
 
         siswaList.forEach((siswa) => {
-        const siswaName = siswa.querySelector(".name-siswa h4").textContent.toLowerCase();
+        const siswaName = siswa.querySelector(".name-siswa h3").textContent.toLowerCase();
         const siswaKelas = siswa.getAttribute('data-filter-kelas');
         const siswaJurusan = siswa.getAttribute('data-filter-jurusan');
 

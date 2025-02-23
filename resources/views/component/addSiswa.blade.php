@@ -1,4 +1,4 @@
-<main class="container-add-siswa">
+<main class="container-add-siswa content" id="formAdd">
     <div>
         <article class="title-add-siswa">
             <h3>tambah data siswa</h3>

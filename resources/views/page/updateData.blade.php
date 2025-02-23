@@ -13,6 +13,16 @@
 <body>
 
 </body>
+@if ($errors->any())
+@foreach ($errors->all() as $error)
+<section id="alert" class="alert" role="alert">
+    <div>
+        <h3>error</h3>
+        <h4>{{ $error }}</h4>
+    </div>
+</section>
+@endforeach
+@endif
 <main class="container-main">
     <div>
         <article class="title-update">

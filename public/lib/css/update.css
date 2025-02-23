@@ -23,6 +23,59 @@ body{
 body::-webkit-scrollbar {
   width:0;
 }
+.alert{
+    top: 0;
+    width: 100%;
+    max-width: 30em;
+    display: flex;
+    position: fixed;
+    margin-top: 20px;
+    border-radius: 6px;
+    background: #fbfbfb;
+    box-shadow: var(--box-shadow-1);
+    animation: alert-in .5s ease-in-out;
+}
+.alert.hidden {
+    opacity: 0;
+    z-index: -1;
+    animation: alert-out .5s ease-in-out;
+    pointer-events: none; /* Mencegah interaksi setelah hilang */
+}
+@keyframes alert-in{
+    0%{
+        opacity: 0;
+        transform: translateY(-1.3em) scale(.7627);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+@keyframes alert-out{
+    0%{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-1.3em) scale(.7627);
+    }
+}
+.alert>div{
+    margin: 15px 30px;
+}
+.alert h3{
+    font-weight: 550;
+    text-transform: capitalize;
+    font-size: 18px;
+    color: #622c2c;
+    font-family: 'Kanit', sans-serif;
+}
+.alert h4{
+    font-size: 13px;
+    color: #a05757;
+    margin-top: 5px;
+}
 .container-main{
     width: 100%;
     display: flex;
@@ -101,4 +154,4 @@ body::-webkit-scrollbar {
     text-transform: capitalize;
     width: 100%;
     padding: 11px 21px;
-} 
+}

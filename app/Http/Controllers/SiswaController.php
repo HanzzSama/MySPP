@@ -6,8 +6,10 @@ use App\Models\Siswa;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreSiswaRequest;
 use App\Http\Requests\UpdateSiswaRequest;
 
@@ -93,16 +95,20 @@ class SiswaController extends Controller
      */
     // use Illuminate\Support\Facades\Auth;
 
-    public function update(UpdateSiswaRequest $request, $id)
+    public function update(Request $request, $id): RedirectResponse
     {
-        // Cari data siswa dan user terkait
+        // Cari data siswa yang akan diupdate
         $siswa = Siswa::findOrFail($id);
-        $user = User::findOrFail($siswa->id_user);
 
         // Validasi input
         $validatedData = $request->validate([
             'nama' => 'required|string|max:255',
-            'nisn' => 'nullable|string|max:20|unique:siswas,nisn,' . $id,
+            'nisn' => [
+                'nullable',
+                'string',
+                'max:20',
+                Rule::unique('siswas', 'nisn')->ignore($siswa->id),
+            ],
             'no_telp' => 'required|string|max:15',
             'alamat' => 'nullable|string',
             'email' => 'nullable|email',
@@ -110,20 +116,29 @@ class SiswaController extends Controller
             'id_kelas' => 'nullable|integer',
         ]);
 
-        // Cek role yang update data
+        // ** Periksa apakah NISN tidak diubah atau kosong **
+        if ($request->nisn === $siswa->nisn || is_null($request->nisn)) {
+            $validatedData['nisn'] = $siswa->nisn;
+        }
+
+        // ** Cek role yang update data **
         if (Auth::user()->role == 'siswa') {
             $validatedData['role'] = null;
-            $validatedData['nisn'] = null;
+            $validatedData['nisn'] = $siswa->nisn;
             $validatedData['id_kelas'] = null;
-        } elseif (Auth::user()->role == 'petugas') {
+        } elseif (Auth::user()->role == 'admin') {
             $validatedData['role'] = null;
+            $validatedData['nisn'] = $siswa->nisn;
             $validatedData['email'] = null;
             $validatedData['id_kelas'] = null;
         }
 
+        // Cari data user terkait
+        $user = User::findOrFail($siswa->id_user);
+
         // Gunakan transaksi agar jika salah satu gagal, semuanya dibatalkan
         DB::transaction(function () use ($validatedData, $user, $siswa) {
-            // Update data user di tabel users
+            // ** Update data user di tabel users **
             $user->update([
                 'nama' => $validatedData['nama'],
                 'email' => $validatedData['email'],
@@ -132,23 +147,28 @@ class SiswaController extends Controller
                 'role' => $validatedData['role'],
             ]);
 
-            // Update data siswa di tabel siswas
+            // ** Update data siswa di tabel siswas **
             $siswa->update([
                 'nisn' => $validatedData['nisn'],
                 'id_kelas' => $validatedData['id_kelas'],
             ]);
         });
 
-        return redirect()->route('dashboard.petugas')->with('success', 'Data berhasil diupdate!');
+        return redirect()->route('dashboard.' . Auth::user()->role)->with('success', 'Data berhasil diupdate!');
     }
-
-
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Siswa $siswa)
+     public function destroy($id): RedirectResponse
     {
-        //
+        //get product by ID
+        $data = User::findOrFail($id);
+
+        //delete product
+        $data->delete();
+
+        //redirect to index
+        return redirect()->route('dashboard.'.Auth::user()->role)->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }
