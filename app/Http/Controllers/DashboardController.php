@@ -36,7 +36,13 @@ class DashboardController extends Controller
             $item->kelas->singkatan_jurusan = $jurusan_singkatan[$jurusan_full] ?? $jurusan_full;
         }
 
-        return view('dashboard.AdminDashboard', compact('siswa', 'jurusan', 'users'), [
+        // Ambil semua data pembayaran dengan relasi ke user
+        $pembayaran = Pembayaran::with('user')->latest()->get();
+
+        // Hitung jumlah user dengan role "petugas"
+        $jumlah_petugas = User::where('role', 'petugas')->count();
+
+        return view('dashboard.AdminDashboard', compact('siswa', 'jurusan', 'users', 'pembayaran', 'jumlah_petugas'), [
             'siswa' => Siswa::all(),
             'total_spp' => Pembayaran::sum('jumlah_bayar') // Total semua uang SPP
         ])->with('i', (request()->input('page', 1) - 1) * 5);
@@ -67,7 +73,10 @@ class DashboardController extends Controller
             $item->kelas->singkatan_jurusan = $jurusan_singkatan[$jurusan_full] ?? $jurusan_full;
         }
 
-        return view('dashboard.PetugasDashboard', compact('siswa', 'jurusan', 'users'), [
+        // Ambil semua data pembayaran dengan relasi ke user
+        $pembayaran = Pembayaran::with('user')->latest()->get();
+
+        return view('dashboard.PetugasDashboard', compact('siswa', 'jurusan', 'users', 'pembayaran'), [
             'siswa' => Siswa::all(),
             'total_spp' => Pembayaran::sum('jumlah_bayar') // Total semua uang SPP
         ])->with('i', (request()->input('page', 1) - 1) * 5);

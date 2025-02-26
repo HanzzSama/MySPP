@@ -160,7 +160,7 @@ class SiswaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-     public function destroy($id): RedirectResponse
+    public function destroy($id): RedirectResponse
     {
         //get product by ID
         $data = User::findOrFail($id);
@@ -169,6 +169,6 @@ class SiswaController extends Controller
         $data->delete();
 
         //redirect to index
-        return redirect()->route('dashboard.'.Auth::user()->role)->with(['success' => 'Data Berhasil Dihapus!']);
+        return redirect()->route('dashboard.' . Auth::user()->role)->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

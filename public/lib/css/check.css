@@ -23,10 +23,14 @@ body{
 body::-webkit-scrollbar {
   width:0;
 }
+.wrapper{
+    display: flex;
+}
 .container-main{
     width: 100%;
     display: flex;
-    max-width: 22em;
+    min-width: 25em;
+    max-width: 27em;
     min-height: 30em;
     border-radius: 6px;
     background: #fbfbfb;
@@ -63,7 +67,7 @@ hr{
 }
 .content-check{
     gap: 8px;
-    margin-top: 1.3em;
+    margin: 1.3em 10px 0 10px;
     display: flex;
     flex-direction: column;
 }
@@ -86,12 +90,16 @@ hr{
 }
 .data>h4:nth-child(1){
     width: 9em;
+    white-space: nowrap;
+    /* background: red; */
     font-size: 14px;
     color: #313131;
 }
 .data>h4:nth-child(3){
     font-size: 14px;
     color: #555555;
+    width: 12.8em;
+    /* background: red; */
 }
 .data .nominal{
     display: flex;
@@ -108,4 +116,67 @@ hr{
     text-transform: capitalize;
     width: 100%;
     padding: 11px 21px;
+}
+.btn-cetak{
+    width: 100%;
+    max-width: 12em;
+    position: absolute;
+    transform: translateX(25.7em);
+}
+.btn-cetak button{
+    width: 100%;
+    display: flex;
+    max-width: 3.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-1);
+    border: 1px solid #bcbcbc;
+    padding: 10px 10px;
+    align-items: center;
+}
+.btn-cetak button i{
+    font-size: 21px;
+    color: #555555;
+}
+.btn-cetak button span{
+    gap: 0;
+    display: flex;
+    overflow: hidden;
+    /* background: red; */
+}
+.btn-cetak button div h4{
+    opacity: 0;
+    text-transform: capitalize;
+    font-weight: 550;
+    color: #777777;
+    white-space: nowrap;
+}
+.btn-cetak button:hover{
+    gap: 10px;
+    max-width: 11.2em;
+    padding: 10px 20px;
+}
+.btn-cetak button:hover span{
+    gap: 10px;
+    /* width: 100%; */
+    position: relative;
+}
+.btn-cetak button:hover div h4{
+    opacity: 1;
+}
+@media print {
+    /* Sembunyikan tombol cetak saat mode cetak */
+    button {
+        display: none;
+    }
+    /* Atur margin dan layout untuk hasil cetakan */
+    body {
+        margin: 20px;
+        font-size: 14px;
+    }
+    /* Atur tampilan elemen total SPP */
+    #totalSPPDisplay {
+        font-weight: bold;
+        font-size: 18px;
+    }
 }

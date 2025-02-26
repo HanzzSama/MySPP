@@ -4,12 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PembayaranController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\ShowController;
 
 Route::get('/', function () {
     return view('auth.login');
 });
 
 Route::get('dashboard/check', [PembayaranController::class, 'index'])->name('dashboard.check');
+Route::get('dashboard/detaile/{id}', [ShowController::class, 'showTuition'])->name('pembayaran.showTuition');
 // Route::put('dashboard/petugas/{id}', [SiswaController::class, 'update'])->name('dashboard.update');
 
 

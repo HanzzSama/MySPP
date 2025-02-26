@@ -17,10 +17,12 @@ class Pembayaran extends Model
     protected $fillable = [
         'id_user',
         'nisn',
+        'status',
         'tgl_bayar',
         'bulan_bayar',
         'tahun_bayar',
         'jumlah_bayar',
+        'uang_sisa',
     ];
 
     public function user(): BelongsTo

@@ -125,6 +125,7 @@ body::-webkit-scrollbar {
 }
 .input-hide{
     display: none;
+    position: relative;
 }
 .input label{
     font-size: 13px;
@@ -279,10 +280,6 @@ select:-moz-focusring {
     /* background: blue; */
     margin: 20px;
 }
-#box-spp{
-    display: flex;
-    border-radius: 5px;
-}
 .month{
     /* background: blue; */
     margin: 10px 17px;
@@ -315,9 +312,13 @@ select:-moz-focusring {
     font-size: 13px;
     /* padding: 5px 12px; */
 }
+#box-spp{
+    display: flex;
+    border-radius: 5px;
+}
 .kurang { background-color: #b9433e; }
 .pas { background-color: #3ea458; }
-.kembalian { background-color: #377bac; }
+.kembali { background-color: #377bac; }
 .btn{
     display: flex;
     margin: 1em 0 8px 0;

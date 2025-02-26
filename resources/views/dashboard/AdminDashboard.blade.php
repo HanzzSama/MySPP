@@ -46,6 +46,8 @@
                 </nav>
                 @include('component.dataSiswa')
                 @include('component.addSiswa')
+                @include('component.dataStatic')
+                @include('component.historyAll')
                 <footer class="container-footer">
                     <div></div>
                 </footer>

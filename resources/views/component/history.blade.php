@@ -19,7 +19,7 @@
                         </div>
                         <div class="history-nominal">
                             <h6>Rp.</h6>
-                            <h4>{{ $data->jumlah_bayar }}.000,-</h4>
+                            <h4>{{ number_format($data->jumlah_bayar, 0, ',', '.') }},-</h4>
                         </div>
                     </div>
                 </figure>

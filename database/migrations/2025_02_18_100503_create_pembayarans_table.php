@@ -18,6 +18,8 @@ return new class extends Migration {
             $table->string("bulan_bayar");
             $table->string("tahun_bayar");
             $table->integer("jumlah_bayar");
+            $table->integer("uang_sisa");
+            $table->string("status");
             // $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

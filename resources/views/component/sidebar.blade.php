@@ -28,10 +28,10 @@
 
                         @endif
                         <article class="btn-nav-menu">
-                            <a>
+                            <a onclick="toggleContent(['history'])">
                                 <div>
                                     <i class='bx bxs-wallet'></i>
-                                    <h4>SPP</h4>
+                                    <h4>history SPP</h4>
                                 </div>
                             </a>
                         </article>

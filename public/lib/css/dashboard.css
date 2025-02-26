@@ -813,19 +813,174 @@ body::-webkit-scrollbar {
     color: #6e6e6e;
 }
 /* ============================================ */
+/* =============== Container Data Analyzing =============== */
+/* ============================================ */
+.container-data-analyzing{
+    margin-top: 3em;
+}
+.title-data h3{
+    font-size: 18px;
+    font-weight: 550;
+    text-transform: capitalize;
+}
+.container-data{
+    margin-top: 2em;
+}
+.container-data-count{
+    /* background: red; */
+    position: relative;
+}
+.container-data-count>div{
+    display: flex;
+    gap: 20px;
+    margin-top: 1em;
+}
+.card-data-count{
+    width: 100%;
+    display: flex;
+    border-radius: 5px;
+    background: #fbfbfb;
+    box-shadow: var(--box-shadow-1);
+}
+.card-data-count:nth-child(1){
+    min-width: 24em;
+}
+.card-data-count>div{
+    margin: 16px 18px;
+}
+.icon-data i{
+    font-size: 40px;
+    color: #313131;
+}
+.desc-data{
+    margin-top: 1.6em;
+}
+.desc-data h5{
+    font-weight: 550;
+    color: #6e6e6e;
+    text-transform: capitalize;
+}
+.desc-data h4{
+    margin: 8px 0;
+    font-size: 30px;
+    font-weight: 550;
+    color: #313131;
+}
+.desc-data>h5{
+    color: #313131;
+    font-weight: 550;
+    text-transform: capitalize;
+}
+.total-spp{
+    gap: 5px;
+    margin: 8px 0;
+    display: flex;
+}
+.total-spp h4{
+    margin: 0 0;
+}
+.total-spp>h6{
+    font-size: 13px;
+}
+/* ============================================ */
 /* =============== History All Section =============== */
 /* ============================================ */
 .container-history-all{
     width: 100%;
-    display: flex;
-    margin-top: 2em;
+    /* display: flex; */
+    margin-top: 3em;
     border-radius: 6px;
     position: relative;
     background: #fbfbfb;
     box-shadow: var(--box-shadow-1);
 }
 .container-history-all>div{
+    width: 100%;
     margin: 10px 20px;
+}
+.btn-history.detaile button{
+    padding: 10px 30px;
+    border: none;
+    display: flex;
+    gap: 10px;
+    font-weight: 550;
+    cursor: pointer;
+    border-radius: 6px;
+    letter-spacing: .4px;
+    align-items: center;
+    background: #313131;
+    text-transform: capitalize;
+}
+.btn-history.detaile button h4{
+    white-space: nowrap;
+}
+.btn-history.detaile button{
+    background: transparent;
+    border: 2px solid #3e74a4;
+}
+.btn-history.detaile button i{ color: #3e74a4; }
+.btn-history.detaile button h4{ color: #3e74a4; font-weight: 550; }
+/* ============================================ */
+/* =============== History All Admin Section =============== */
+/* ============================================ */
+.container-history-admin{
+    width: 100%;
+    margin-top: 2em;
+    /* background: blue; */
+}
+.container-history-admin>div{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.card-history-admin{
+    width: 100%;
+    display: flex;
+    border-radius: 5px;
+    /* background: red; */
+    border: 1px solid #ccc;
+}
+.card-history-admin>div{
+    width: 100%;
+    display: flex;
+    margin: 10px 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+.history-admin.name h3{
+    font-weight: 550;
+    color: #333;
+    font-size: 17px;
+}
+.history-admin.jurusan h4{
+    min-width: 18em;
+    font-size: 14px;
+    color: #6e6e6e;
+    text-transform: capitalize;
+}
+.history-admin.nisn h4{
+    min-width: 6em;
+    font-size: 14px;
+    color: #6e6e6e;
+    letter-spacing: .4px;
+}
+.history-admin.bln h4{
+    min-width: 10em;
+    font-size: 14px;
+    color: #6e6e6e;
+    text-transform: capitalize;
+}
+.history-admin.nominal{
+    min-width: 7em;
+    display: flex;
+}
+.history-admin.nominal h6{
+    color: #969696;
+}
+.history-admin.nominal h4{
+    font-weight: 550;
+    color: #3ea458;
+    letter-spacing: .4px;
 }
 /* ============================================ */
 /* =============== Footer Section =============== */
